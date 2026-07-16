@@ -24,3 +24,12 @@ Para replicar el análisis y procesamiento de los microdatos de las encuestas (2
 
 ### Contenido del Repositorio
 * `limpieza_riobamba_P_ESTADÍSTICA.R`: Script principal con la carga, depuración, generación de gráficos y estimación de la Ecuación de Mincer.
+
+###  Origen de los Datos
+Para ejecutar el script de análisis, es necesario contar con las bases de datos de empleo en formato `.csv` correspondientes a los periodos 2023, 2024 y 2025. 
+
+* **Fuente:** Instituto Nacional de Estadística y Censos (INEC) / Encuesta Nacional de Empleo, Desempleo y Subempleo (ENEMDU).
+* **Preparación:** Asegúrese de ubicar los siguientes archivos en el mismo directorio de trabajo donde se ejecutará el script `limpieza_riobamba_P_ESTADÍSTICA.R`:
+  * `Riobamba2023.csv`
+  * `Riobamba2024.csv`
+  * `Riobamba2025.csv`
