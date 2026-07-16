@@ -9,10 +9,10 @@ Este repositorio contiene la sintaxis oficial en R desarrollada por el **Analist
 ---
 
 ###  Integrantes - Grupo 1
-* Stalyn (Analista de Datos)
-* [Nombre de tu compañero 2] (Resultados y Discusión)
-* [Nombre de tu compañero 3]
-* [Nombre de tu compañero 4]
+* Sandy
+* Mishell
+* Stalyn
+* Kleyton
 
 ---
 
