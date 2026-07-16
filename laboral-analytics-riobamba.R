@@ -4,10 +4,10 @@ library(dplyr)
 library(ggplot2)
 
 
-# Esto le dice a tu Mac que trabaje en la carpeta donde tienes guardados tus archivos
+
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-# Cargamos los archivos de tu carpeta en Mac
+# Cargamos los archivos 
 Riobamba2023 <- read.csv2("Riobamba2023.csv", stringsAsFactors = FALSE)
 Riobamba2024 <- read.csv2("Riobamba2024.csv", stringsAsFactors = FALSE)
 Riobamba2025 <- read.csv2("Riobamba2025.csv", stringsAsFactors = FALSE)
