@@ -5,19 +5,18 @@
 > **Evolución del empleo, desempleo y subempleo según el nivel de instrucción de la población económicamente activa de la provincia de Chimborazo, período 2023–2025**
 
 ---
-
-### Detalles del Desarrollo Técnico
-* **Rol:** Analista de Datos (Stalyn)
-* **Software utilizado:** R (v4.6.1) y RStudio
-* **Datos analizados:** Microdatos de la ENEMDU (INEC) integrados para el periodo de tres años (2023-2025).
-* **Modelación econométrica:** Estimación de la Ecuación de Mincer adaptada para evaluar el impacto de la instrucción formal en los ingresos de la población económicamente activa de la provincia.
-
-  
 ###  Integrantes - Grupo 1
 * Sandy
 * Mishell
 * Stalyn
 * Kleyton
+---
+
+### Detalles del Desarrollo Técnico
+
+* **Software utilizado:** R (v4.6.1) y RStudio
+* **Datos analizados:** Microdatos de la ENEMDU (INEC) integrados para el periodo de tres años (2023-2025).
+* **Modelación econométrica:** Estimación de la Ecuación de Mincer adaptada para evaluar el impacto de la instrucción formal en los ingresos de la población económicamente activa de la provincia.
 
 ---
 
