@@ -1,12 +1,12 @@
-# 📊 Investigación Formativa - Grupo 1
+# Investigación Formativa - Grupo 1
 ## Materia: Probabilidad y Estadística | UNACH
 
-### 🔬 Tema del Proyecto:
+### Tema del Proyecto:
 > **Evolución del empleo, desempleo y subempleo según el nivel de instrucción de la población económicamente activa de la provincia de Chimborazo, período 2023–2025**
 
 ---
 
-### 🛠️ Detalles del Desarrollo Técnico
+### Detalles del Desarrollo Técnico
 * **Rol:** Analista de Datos (Stalyn)
 * **Software utilizado:** R (v4.6.1) y RStudio
 * **Datos analizados:** Microdatos de la ENEMDU (INEC) integrados para el periodo de tres años (2023-2025).
