@@ -1,7 +1,7 @@
-# ==============================================================================
+
 # SCRIPT: ANÁLISIS DE MERCADO LABORAL EN CHIMBORAZO (2023 - 2025)
 # ASIGNATURA: INVESTIGACIÓN FORMATIVA / ESTADÍSTICA
-# ==============================================================================
+
 
 # 1. CARGA DE LIBRERÍAS 
 library(readr)
@@ -28,8 +28,7 @@ Ch_2025$Anio <- 2025
 Base_Unida <- bind_rows(Ch_2023, Ch_2024, Ch_2025)
 
 
-# 6. FILTRADO DE LA PEA Y DEPURACIÓN DE VARIABLES (Tratamiento de vacíos)
-# ==============================================================================
+# 6. FILTRADO DE LA PEA Y DEPURACIÓN DE VARIABLES 
 df_laboral <- Base_Unida %>%
   # Paso A: Quedarnos ÚNICAMENTE con la PEA
   filter(condact %in% c(1, 2)) %>%
@@ -81,10 +80,10 @@ df_laboral <- Base_Unida %>%
                                    levels = c("Sin Instrucción", "Educación Básica", "Bachillerato", "Educación Superior"))
   )
 
-# 7. EJECUCIÓN DEL ANÁLISIS ESTADÍSTICO (Fases del Informe)
-# ==============================================================================
+#  EJECUCIÓN DEL ANÁLISIS ESTADÍSTICO 
 
-### FASE 7.1: ANÁLISIS DESCRIPTIVO (Objetivo Específico 1)
+
+### ANÁLISIS DESCRIPTIVO 
 cat("\n--- DISTRIBUCIÓN DE FRECUENCIAS: NIVEL DE INSTRUCCIÓN vs CONDICIÓN DE EMPLEO ---\n")
 tabla_contingencia <- table(df_laboral$Nivel_Instruccion_Cat, df_laboral$Condicion_Empleo)
 print(tabla_contingencia)
@@ -107,7 +106,7 @@ descriptivos_ingreso <- df_laboral %>%
 print(descriptivos_ingreso)
 
 
-### FASE 7.2 PRUEBAS DE HIPÓTESIS INFERENCIAL
+###  PRUEBAS DE HIPÓTESIS INFERENCIAL
 cat("\n--- PRUEBA CHI-CUADRADO DE INDEPENDENCIA (Nivel vs Empleo) ---\n")
 tabla_filtrada <- table(df_laboral$Nivel_Instruccion_Cat, df_laboral$Condicion_Empleo)
 tabla_filtrada <- tabla_filtrada[rowSums(tabla_filtrada) > 0, ]
@@ -130,7 +129,7 @@ ggplot(df_laboral,
 
 
 # CAMBIO CRÍTICO: ANÁLISIS CON ESCOLARIDAD REESTRUCTURADA
-# ------------------------------------------------------------------------------
+
 cat("\n--- ANÁLISIS DE CORRELACIÓN DE SPEARMAN (Escolaridad vs Ingreso) ---\n")
 df_correlacion <- df_laboral %>% 
   filter(Ingreso_Laboral > 0 & Ingreso_Laboral < 99999 & !is.na(Anios_Escolaridad))
@@ -171,8 +170,8 @@ ggplot(df_laboral, aes(x = Nivel_Instruccion_Cat, fill = Condicion_Empleo)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 
-# 3. BOXPLOT: INCIDENCIA CON COLORES PERSONALIZADOS VÍVIDOS
-# -------------------------------------------------------------
+# 3. BOXPLOT:
+
 df_boxplot <- df_laboral %>% 
   filter(Ingreso_Laboral > 0 & Ingreso_Laboral <= 3000)
 
@@ -180,9 +179,9 @@ ggplot(df_boxplot, aes(x = Nivel_Instruccion_Cat, y = Ingreso_Laboral, fill = Ni
   geom_boxplot(outlier.alpha = 0.1, alpha = 0.9, color = "black", size = 0.6) +
   
   scale_fill_manual(values = c(
-    "Educación Básica"   = "#00cc66",  # Un verde esmeralda bien vivo
-    "Bachillerato"       = "#00b0f0",  # Un azul celeste brillante
-    "Educación Superior" = "#ff33cc"   # El fucsia/rosado encendido de los niveles altos
+    "Educación Básica"   = "#00cc66",  
+    "Bachillerato"       = "#00b0f0",  
+    "Educación Superior" = "#ff33cc"   
   )) +
   labs(
     title = "Incidencia del Nivel de Instrucción en el Ingreso Laboral",
@@ -200,7 +199,7 @@ ggplot(df_boxplot, aes(x = Nivel_Instruccion_Cat, y = Ingreso_Laboral, fill = Ni
 
 
 # 4. DISPERSIÓN: CORRELACIÓN DE SPEARMAN
-# -------------------------------------------------------------
+
 ggplot(df_correlacion, aes(x = Anios_Escolaridad, y = Ingreso_Laboral)) +
   geom_jitter(alpha = 0.08, color = "#1a5276", width = 0.3) + 
   geom_smooth(method = "lm", color = "#e74c3c", se = FALSE, size = 1.5) +
@@ -245,7 +244,7 @@ sjPlot::plot_model(modelo_final,
 
 
 # DISTRIBUCION DEL INGRESO POR GENERO
-# -------------------------------------------------------------
+
 ggplot(data = df_mincer, aes(x = Sexo, y = exp(Ln_Ingreso), fill = Sexo)) +
   geom_boxplot(alpha = 0.7, outlier.alpha = 0.1, outlier.color = "gray50", width = 0.6) +
   scale_fill_manual(values = c("Hombre" = "#1a5276", "Mujer" = "#b03a2e")) +
@@ -265,7 +264,7 @@ ggplot(data = df_mincer, aes(x = Sexo, y = exp(Ln_Ingreso), fill = Sexo)) +
 
 
 # GRAFICO MENSUAL X ZONA
-# -------------------------------------------------------------
+
 ggplot(data = df_mincer, aes(x = Area, y = exp(Ln_Ingreso), fill = Area)) +
   geom_boxplot(alpha = 0.7, outlier.alpha = 0.1, outlier.color = "gray50", width = 0.6) +
   scale_fill_manual(values = c("Urbana" = "#2e4053", "Rural" = "#d35400")) + 
